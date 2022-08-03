@@ -113,38 +113,6 @@
 
     // const arr = ['hello', 'world', 23, '23', null]
     // const filterType = 'string'
-    // function findUniq(arr) {
-    //
-    //     const repeatedTimes = arr.reduce((repeated, elem) => ({...repeated, [elem]: (repeated[elem] || 0) + 1}) , {});
-    //
-    //     for (const key in repeatedTimes) {
-    //         if (repeatedTimes[key] === 1){
-    //             return Number(key)
-    //         }
-    //     }
-    //
-    //     return null;
-    // }
-
-    function findUniq(arr) {
-        return arr.find(elem => arr.indexOf(elem) === arr.lastIndexOf(elem));
-    }
-
-
-    // function findUniq(arr) {
-    //     const filtered = arr.filter(elem => arr.indexOf(elem) === arr.lastIndexOf(elem));
-    //
-    //     if (filtered.length > 0){
-    //         return filtered[0]
-    //     }
-    //     return null
-    // }
-
-
-    const testArr = [3,10, 3, 3, 3, 3, 3];
-
-
-    console.log(findUniq(testArr));
 
 </script>
 </body>
