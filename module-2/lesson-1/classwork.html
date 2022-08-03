@@ -8,25 +8,58 @@
 <script>
     // 1. Напишіть скрипт порівняння двох масивів. Виводь у консоль true якщо вони ідентичні, та false якщо ні ( довжина обох массивів однакова )
     // ([1, 2, 3], [1, 2, 3]) => true
+    // const arr1 = [1,2,3,4];
+    // const arr2 = [1,2,3,5];
 
-    //--------------------
+    // for (let i = 0; i < arr1.length; i +=1) {
+    //     if (arr1[i] === arr2[i]) {
+    //         console.log(`${arr1[i]} = ${arr2[i]}, ${i}`)
+    //     } else {
+    //         console.log(`${arr1[i]} != ${arr2[i]}, ${i}`)
+    //     }
+    // }
+
+
+    // --------------------
 
     // 2. Написати скрипт який буде видаляти з масиву елемент та виводити масив після видалення в консоль.
     // Якщо такого елемента в масиві немає – виводь у консоль помилку
 
     // const arr = [1,2,3,4,5,6,7]
-    // const elementToRemove = 2;
+    // const elementToRemove = 10;
+
+    // const elemInd = arr.indexOf(elementToRemove);
+
+    // if (elemInd !== -1) {
+    //     arr.splice(elemInd, 1);
+    //     console.log(arr);
+    // } else {
+    //     console.log('error: this element is not exist in array');
+    // }
+
 
     //--------------------
 
     // 3. Напишіть скрипт який буде виводити в консоль фрагмент масиву, що містить перші 'n' елементів масиву.
-    // const arr = [1,2,3,4,5,6,7]
-    // const n = 2;
+    // const arr = [1,2,3,4,5,6,7] // length = 7
+    // const n = 8;
 
     // Приклад
     // n = 2 => [1,2]
     // n = 4 => [1,2,3,4]
 
+    // console.log(arr.slice(0, n))
+    // const newArr = []
+
+    // for(let i = 0; i < n ; i += 1){
+    //     if(i >= arr.length ){
+    //         console.log(arr[i])
+    //         break;
+    //     }
+    //     newArr.push(arr[i])
+    // }
+
+    //   console.log(newArr)
     //--------------------
 
     // 4. Модифікувати скрипт з задачі 3 щоб можна було працювати також з від'ємним значенням змінної n.
@@ -35,6 +68,20 @@
     // Приклад
     // n = -1 => [7]
     // n = -3 => [7,6,5]
+    // n = -5 => [7,6,5,4,3]
+
+    // const arr = [1, 2, 3, 4, 5, 6, 7]
+    // const n = -5;
+
+    // const arrRevers = arr.reverse()
+
+    // console.log(arrRevers)
+
+    // const newArr = [];
+    // for (let i = 0; i < -n; i += 1){
+    //     newArr.push(arrRevers[i])
+    // }
+
 
     //--------------------
 
@@ -46,6 +93,18 @@
 
     //--------------------
 
+// const arr1 = [1, 2, 3, 4, 5,9];
+// const arr2 = [4, 5, 6, 4, 2];
+// const commonArr = [];
+// for ( let i=0; i < arr1.length; i+=1){
+//     if( arr2[i]===undefined){
+//         commonArr.push(arr1[i]);
+//         continue;
+//     }
+//     commonArr.push(arr1[i]+ arr2[i]);
+// };
+// console.log (commonArr);
+
     // 6. Реалізувати скрипт фільтру масиву за вказаним типом даних.
 
     // Змінна arr - масив, який міститиме будь-які дані, filterType - тип даних.
@@ -54,7 +113,38 @@
 
     // const arr = ['hello', 'world', 23, '23', null]
     // const filterType = 'string'
+    // function findUniq(arr) {
+    //
+    //     const repeatedTimes = arr.reduce((repeated, elem) => ({...repeated, [elem]: (repeated[elem] || 0) + 1}) , {});
+    //
+    //     for (const key in repeatedTimes) {
+    //         if (repeatedTimes[key] === 1){
+    //             return Number(key)
+    //         }
+    //     }
+    //
+    //     return null;
+    // }
 
+    function findUniq(arr) {
+        return arr.find(elem => arr.indexOf(elem) === arr.lastIndexOf(elem));
+    }
+
+
+    // function findUniq(arr) {
+    //     const filtered = arr.filter(elem => arr.indexOf(elem) === arr.lastIndexOf(elem));
+    //
+    //     if (filtered.length > 0){
+    //         return filtered[0]
+    //     }
+    //     return null
+    // }
+
+
+    const testArr = [3,10, 3, 3, 3, 3, 3];
+
+
+    console.log(findUniq(testArr));
 
 </script>
 </body>
