@@ -9,6 +9,18 @@
     // 1. Напишіть функцію avg, яка повертає середнє значення переданого масиву (якщо довжина масиву дорівнює нулю, то має повернутися 0).
 
 
+    // function avg1(array) {
+    //     let total = 0
+    //     if (array.length === 0){
+    //         return 0
+    //     }
+    //     for(const arr of array){
+
+    //     total += arr
+    //     }
+    //     return total/array.length
+    // }
+
     // console.log(avg([0, 1, 2, 3, 4, 5])); // 2.5
     // console.log(avg([22, 34, 62, 99])); // 54.25
     // console.log(avg([])); // 0
@@ -18,34 +30,80 @@
 
     // 2. Напишіть функцію power для обчислення степені числа
 
+        // function power (a, b){
+        //     let degree = a;
+        //     for (let i = 1; i < b; i += 1) {
+        //          degree *= a;
+        //     }
+        //     return degree;
+        // }
 
-    // console.log(power(2, 3)); // 8
-    // console.log(power(4, 2)); // 16
-    // console.log(exp(3, 4)); // 81
+
+        // console.log(power(2, 3)); // 8
+        // console.log(power(4, 2)); // 16
+        // console.log(power(3, 4)); // 81
+        // onsole.log(power(10, 3)); // 1000
 
     //-------------------------
 
     // 3. Напишіть функцію squareDigits, яка приймає число та зводить у квадрат кожен символ.
 
+// function squareDigits (number) {
+//     const arr = number.toString().split('');
+//     console.log(arr);
+//     for (let i = 0; i < arr.length; i += 1 ) {
+//         arr[i] *= arr[i];
+//     }
+//     return Number(arr.join(''));
+// }
 
-    // console.log(squareDigits(91)); // 811
-    // console.log(squareDigits(0)); // 0
-    // console.log(squareDigits(867)); // 643649
-    // console.log(squareDigits2(91)); // 811
-    // console.log(squareDigits2(0)); // 0
-    // console.log(squareDigits2(867)); // 643649
+// function squareDigits2 (number) {
+//     return Number(number.toString()
+//     .split('') // ['9', '1']
+//     .map((item) => Number(item) * Number(item)) // [81, 1]
+//     .join('')) // '811'
+// }
+
+//     console.log(squareDigits(91)); // 811
+//     console.log(squareDigits(0)); // 0
+//     console.log(squareDigits(867)); // 643649
+//     console.log(squareDigits2(91)); // 811
+//     console.log(squareDigits2(0)); // 0
+//     console.log(squareDigits2(867)); // 643649
 
     //------------------------
 
     // 4. Написати функцію stringTransformer, яка буде трансформувати рядок за такими правилами:
 
     // 1) Змінити регістр кожного знака, тобто. нижній регістр у верхній регістр, верхній регістр у нижній регістр. (наприклад 'FizzBuzz'-> 'fIZZbUZZ');
-    // 2) Змінити порядок слів на зворотний (наприклад, 'pen pineapple apple PEN' --> 'pen APPLE PINEAPPLE PEN').
+    // 2) Змінити порядок слів на зворотний (наприклад, 'pen pineapple apple PEN' --> 'pen APPLE PINEAPPLE PEN'). // Done
+
+        // function stringTransformer (string) {
+        // const newArray = string.split(' ').reverse();
+        // // console.log(newArray);
+        // const reversString = newArray.join(' ').split('');
+        // // console.log(reversString);
+
+        // for (let i=0; i<reversString.length; i+=1) {
+
+        // // if (reversString[i] === reversString[i].toLowerCase()) {
+        // //     reversString[i] = reversString[i].toUpperCase();
+        // // } else {
+        // //     reversString[i] = reversString[i].toLowerCase()
+        // // }
+
+        // reversString[i] = reversString[i] === reversString[i].toLowerCase()
+        //                 ? reversString[i].toUpperCase()
+        //                 : reversString[i].toLowerCase();
+
+        // }
+        // return reversString.join('');
 
 
+        // }
 
     // console.log(stringTransformer('torininGEN THE bEst'));
-    //BeST the TORININgen
+    // BeST the TORININgen
 
     // console.log(stringTransformer('JavaScript IS poor LANGUAGE'));
     // language POOR is jAVAsCRIPT
@@ -54,6 +112,11 @@
 
     // 5. Напишіть функцію isPalindrome, яка перевіряє, чи переданий рядок є паліндромом.
     // Паліндром - це слово, фраза чи послідовність, які читаються так само, як уперед, назад, наприклад, level.
+
+    //         function isPalindrome (string) {
+    //             const newString = string.split('').reverse().join('');
+    //             return newString === string
+    //         }
 
 
     // console.log(isPalindrome('level')); // true
@@ -79,11 +142,49 @@
     // Створити функцію, в яку передати два значення та операцію.
     // Вивести у консоль результат виконання функції.
     //
-    // Необов'язкове завдання додаткової складності: ( на ДЗ )
+    // Необов'язкове завдання додаткової складності:
     //
     // Після введення даних додати перевірку їхньої коректності.
     // Якщо користувач не ввів числа, або при введенні вказав не числа - запитати обидва числа заново
     // (при цьому значенням за умовчанням для кожної зі змінних повинна бути введена раніше інформація).
+
+    // function askForNumbers(){
+    //     const a = Number(prompt('Введите первое число'))
+    //     const b = Number(prompt('Введите второе число'))
+    //     return [a, b];
+    // }
+
+
+    // function askForOperation (){
+    //     return prompt('Введите математическую операцию');
+    // }
+
+    // function calculate(){
+    //     const numbers = askForNumbers() // [1, 4]
+
+    //     const firstNumber = numbers[0]; // 1
+    //     const secondNumbers = numbers[1]; // 4
+
+    //     const operation = askForOperation()
+
+    //     switch(operation){
+    //         case "+":
+    //             return firstNumber + secondNumbers;
+    //         case "-":
+    //             return firstNumber - secondNumbers;
+    //         case "*":
+    //             return firstNumber * secondNumbers;
+    //         case "/":
+    //             return firstNumber / secondNumbers;
+    //         default:
+    //             return "Operation is not valid";
+    //     }
+    // }
+
+
+    // console.log(calculate())
+
 </script>
 </body>
 </html>
+<!--  -->
