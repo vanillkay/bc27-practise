@@ -11,12 +11,20 @@
 
     // const newArr = [1,2,3,4,5,6,7];
 
+    // const [elem1, elem2, elem3, ...arr] = newArr;
+
+    // console.log(elem1, elem2, elem3, arr);
+
     //--------------------------
+
+
 
     // 2. Даний об'єкт obj. Запишіть відповідні значення змінні name, surname і age.
     // Зробіть так, щоб, якщо якесь значення не задано - воно набирало наступного значення за замовчуванням: {name: 'Анонім', surname: 'Анонімович', age: '? років' Ї
 
-    // const obj = { name: 'Олег', surname: 'Олегович', age: '20 років'}
+    // const obj = { }
+    // const{ name = "Анонім", surname = "Анонімович", age ='? років' } = obj
+    // console.log(name, surname,age)
 
     //--------------------------
 
@@ -26,16 +34,16 @@
     //     name: 'John Doe',
     //     age: 16,
     //     scores: {
-    //         maths: 74,
-    //         english: 63,
-    //         science: 85
+    
+    
+        
     //     }
     // };
-    // function displaySummary(student) {
-    //     console.log('Hello, '+ student.name);
-    //     console.log('Your Maths score is '+ (student.scores.maths || 0));
-    //     console.log('Your English score is ' + (student.scores.english || 0));
-    //     console.log('Your Science score is '+ (student.scores.science || 0));
+    // function displaySummary({name, age, scores:{maths= 0, english=0,science=0}}) {
+    //     console.log('Hello, '+ name);
+    //     console.log('Your Maths score is '+ (maths));
+    //     console.log('Your English score is ' + (english));
+    //     console.log('Your Science score is '+ (science));
     // }
     // displaySummary(student);
     // Hello, John Doe
@@ -45,6 +53,8 @@
 
     //--------------------------
 
+
+
     // 4. Проведіть операції з деструктуризації масиву
     // 1) Перемістіть значення масиву rgb в окремі змінні red, green, blue та виведіть їх у консоль ( R: red, G: green, B: blue )
     // 2) Додайте дефолтне значення 255 для red та blue
@@ -52,20 +62,51 @@
 
     // const rgb = [255, 200, 0];
 
+    // const [ , , blue = 45] = rgb;
+
+    // console.log( blue);
+
     //--------------------------
 
     // 5. Поміняйте значення двох змінних між собою
 
     // let width = 300;
     // let height = 400;
+    
+    //     // width = 400;
+    //     // height = 300;
 
+
+    //     [width, height] = [height, width];
+
+    
+    //     console.log(width) // 400
+                
+    //     console.log(height) // 300
+    
     //--------------------------
 
    // 6.Напишіть функцію, яка створює змінні з ім'ям людини ,
-    // а також – його статус серед інших піратів та виводіть їх в консоль. Якщо статусу немає – значить він за умовчанням "матрос"
+    // а також – його статус серед інших піратів та виводіть їх в консоль. Якщо статусу немає – значить він за замовчуванням "матрос"
 
-    // const person = "Джон кухар; Джек капітан; Енко; Вася юнга; Інгрід";
+//     const person = "Джон; Джек капітан; Енко кухар; Вася юнга; Інгрід";
 
+
+// function getPirates(pirats) {
+//     const priratsName = pirats.split("; ") // [ "Джон кухар", "Джек капітан", "Енко", "Вася юнга", "Інгрід" ]
+//     // console.log(priratsName);
+
+
+//         for (const pirat of priratsName) {
+//             const [namePir, status = 'матрос'] = pirat.split(" "); 
+//             // console.log(name);
+//             console.log(namePir, status);
+
+//         }
+//     }
+
+
+//     getPirates(person)
     //--------------------------
 
     // 7. Напишіть функцію, яка створює об'єкт.
@@ -73,32 +114,61 @@
     // рядків формату "ім'яВластивості: значення". Їх може бути багато.
     //
     //     приклад роботи:
-    //     const user = createObject("Іван", "Іванов", "status: глава Юного клану Мексики", "wife: Анна");
-    //      console.log(user);
+        // const user = createObject("Іван", "Іванів", "wife: Анна", "car: Toyota", "position: director");
+        //  console.log(user);
     /*
-    user = {
+    {
          name: "Іван",
          lastName: "Іванів",
-         status: "глава Юного клану Мексики",
+         status: "глава клану Мексики",
          wife: "Анна"
     }
     */
+
+    // function createObject (name, lastName, ...userData) {
+    // const user = { name, lastName }
+    // // console.log("User data =", userData)
+    // // console.log(user)
+    //     for( const dataStr of userData){
+    //         const [key, value] = dataStr.split(": ")
+    //         user[key] = value;
+    //     //     // console.log("Key =", key, "\nValue =", value)
+    //     }
+    //     return user;
+    // }
 
     // Використовуйте оператор rest та дестрктуризацію масиву
 
     //--------------------------
 
-    // 8. 1) У вас є 2 масиви - об'єднайте їх вміст (через функцію) в один warMachine максимально елегантним способом
+    // 8. 1) У вас є 2 масиви - об'єднайте їх вміст (через функцію) в один totalCars максимально елегантним способом
 
     //    2)  Взяти з першого масиву перший елемент, з другого - другий і об'єднати наступним чином:
-    // - другий елемент другого масиву
-    // - Перший масив без першого елемента
-    // - Перший елемент першого масиву
-    // - другий масив без другого елемента
+    // - другий елемент array2
+    // - елементи array1 без першого елемента
+    // - Перший елемент array1
+    // - елементи array2 без другого елемента
 
-    // const johnCars = ["Cadillac", "Ford", "Alfa Romeo", "Audi", "BMW"];
-    // const maryCars = ["Lexus", "Bugatti", "Chevrolet", "Ferrari"];
+    // ['другий елемент array2', 'елементи array1 без першого елемента', 'Перший елемент array1', 'елементи array2 без другого елемента']
+    // ["Bugatti", "Ford", "Alfa Romeo", "Audi", "BMW", "Cadillac", "Lexus", "Chevrolet", "Ferrari"]
 
+    const johnCars = ["Cadillac", "Ford", "Alfa Romeo", "Audi", "BMW", ];
+    const maryCars = ["Lexus", "Bugatti", "Chevrolet", "Ferrari",];
+
+    function concatArrays (array1, array2){
+
+        const [firstItem , ...items] = array1
+        
+        // const [last, prevLast] = array1.reverse()
+
+        const [FirstElement, secondElement, ...thirdPlusItems] = array2;
+
+
+         return [secondElement, ...items, firstItem, FirstElement, ...thirdPlusItems]
+
+    }
+
+    console.log(concatArrays(johnCars, maryCars))
     //--------------------------
 
 </script>
