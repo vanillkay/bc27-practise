@@ -22,18 +22,49 @@
     *   - Використовувати об'єкт arguments заборонено.
     *   - Використати forEach
     *
+    */
+
+// const sum = (...args) => {
+//     if (args.length < 2) {
+//         console.log("Error");
+//         return;
+//     }
+
+//     let total = 0;
+
+//     args.forEach((arg, index) => {
+//         if (typeof arg === 'number' && !isNaN(arg)) {
+//             total += arg;
+//         }
+//         // if (typeof arg !== 'number') {
+//         //    throw new Error(`This is not a number at position ${index + 1}`)
+//         // }
+//         // total += arg;
+//     })
+    
+//     return total;
+// }
+// console.log(sum(1,2,3, NaN))
+
+
+// const isNaNCustom = (variable) => variable !== variable
+
+// console.log( 'is nan', isNaN(NaN), isNaNCustom(NaN))
+// console.log( 'is nan', isNaN(3), isNaNCustom(3))
 
     //-------------------------
 
-    */
+    
+
+   
     // 2. Написати функцію-логгер log, яка виводить у консоль повідомлення вказану кількість разів.
     //
     //  Функція має два параметри:
     //       - Перший - рядковий тип, повідомлення для виведення;
     //       - Другий - числовий тип, кількість висновків повідомлення.
     //
-    //  Задати значення за промовчанням для обох параметрів:
-    //      - Для першого - «Увага! Повідомлення не вказано.»;
+    //  Задати значення за ЗАМОВЧУВАННЯМ для обох параметрів:
+    //      - Для першого - «Empty message»;
     //      - Для другого - 1;
     //
     //  Якщо перший аргумент (повідомлення) не передано - ЗА ЗАМОВЧУВАННЯМ присвоїти цьому аргументу - "Empty message"
@@ -42,7 +73,16 @@
     //  Умови:
     //      - використовувати тип функції arrow function;
 
+    //  const log = (massage = "Empty message", number = 1) => {
+        
+    //     for (let i = 0; i < number; i += 1) {
+    //         console.log(massage);
+    //     }
+    //  }
 
+    // log();
+    // log('Privet')
+    // log();
     //-------------------------
 
     /**
@@ -59,40 +99,88 @@
      *  - Обов'язково використовувати об'єкт Math.
      */
 
+    //  const calc = (...args) => {
+    //     if(args.length < 2){
+    //         console.log("Need more numbers");
+    //         return
+    //     }
+
+    //     for (let i = 0; i < args.length; i +=1) {
+    //         if(typeof args[i] !== 'number'){
+    //          console.log(`I'ts not a number ${i +1}`);
+    //          return
+    //         }
+    //     }
+
+    //     return Math.max(...args)
+
+    //  }
+
+    //  console.log(calc(1,4,'string'))
 
     //-------------------------
 
     // 4. Перепишіть калькулятор використовуючи колбек функції та arrow function
 
-      // function askForNumbers(){
+      // const askForNumbers = () => {
       //     const a = Number(prompt('Введите первое число'))
       //     const b = Number(prompt('Введите второе число'))
       //     return [a, b];
       // }
 
 
-      // function askForOperation (){
-      //     return prompt('Введите математическую операцию');
-      // }
+      // const askForOperation = (message = 'Введите математическую операцию') => prompt(message);
+      
 
-      // function calculate(){
+      // const calculate = (mathOperations) => {
+
       //     const [firstNumber, secondNumbers] = askForNumbers() // [1, 4]
 
-      //     const operation = askForOperation()
+      //     const validOperations = Object.keys(mathOperations).join(" , ");
 
-      //     switch(operation){
-      //         case "+":
-      //             return firstNumber + secondNumbers;
-      //         case "-":
-      //             return firstNumber - secondNumbers;
-      //         case "*":
-      //             return firstNumber * secondNumbers;
-      //         case "/":
-      //             return firstNumber / secondNumbers;
-      //         default:
-      //             return "Operation is not valid";
+      //     const operation = askForOperation(`Enter one of this operation ${validOperations}`)
+
+      //     if(!mathOperations.hasOwnProperty(operation)){
+      //           return "Operation is not valid";
       //     }
+
+
+        //   switch(operation){
+        //       case "+":
+        //           return sum(firstNumber, secondNumbers);
+        //       case "-":
+        //           return minus(firstNumber, secondNumbers);
+        //       case "*":
+        //           return mult(firstNumber, secondNumbers);
+        //       case "/":
+        //           return div(firstNumber, secondNumbers);
+        //       default:
+        //           return "Operation is not valid";
+        //   }
+
+
+            // mathOperations[operation] = sum ( operation = "+")
+      //     return mathOperations[operation](firstNumber, secondNumbers);
+
       // }
+
+      // const sum = (firstNumber, secondNumbers) => firstNumber + secondNumbers;
+      // const minus = (firstNumber, secondNumbers) => firstNumber - secondNumbers;
+      // const mult = (firstNumber, secondNumbers) => firstNumber * secondNumbers;
+      // const div = (firstNumber, secondNumbers) => firstNumber / secondNumbers;
+      // const  power = (firstNumber, secondNumbers) => firstNumber ** secondNumbers;
+
+      // const mathOperations = {
+      //   "+": sum,
+      //   "-": minus,
+      //   "*": mult,
+      //   "/": div,
+      //   "^": power,
+      // }
+
+
+    // console.log(calculate(mathOperations))
+
 </script>
 </body>
 </html>
