@@ -163,10 +163,25 @@
     return newUser
 
     }
- const user = createNewUser()
 
- console.log(user);
-console.log(user.getLogin())
+    const MyVar = 3
+ // const user = createNewUser()
+    console.log([].flatMap(item => item))
+
+//  console.log(user);
+// console.log(user.getLogin())
+
+    const isLetter = (code) => code > 0 && code < 27;
+
+
+    const  charToCode = (char) => char.charCodeAt(0) - 64
+
+    function alphabetPosition(text) {
+       return [...text.toUpperCase()]
+            .map(charToCode)
+            .filter(isLetter)
+            .join(" ");
+    }
 
 </script>
 </body>

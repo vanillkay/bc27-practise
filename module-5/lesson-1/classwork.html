@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. const call = {
+    // caller: "mom",
+    //     says: function() {
+    //     console.log(`Hey, ${this.caller} just called.`);
+    // }
+    // };
+    //
+    // call.says();
+
+
+    //-----------------
+
+
+    // 2. const call = {
+    // caller: "mom",
+    //     says: () => {
+    //     console.log(`Hey, ${this.caller} just called.`);
+    // }
+    // };
+    //
+    // call.says();
+
+    //-----------------
+
+    // 3. const call = {
+    // caller: "mom",
+    //     says: function() {
+    //     console.log(`Hey, ${this.caller} just called.`);
+    // }
+    // };
+    //
+    // let newCall = call.says;
+    //
+    // newCall();
+
+    //-----------------
+
+    // 4. Э функція, викличте її в правильному контексті
+
+    // function showFullName() {
+    //     alert( this.firstName + " " + this.lastName );
+    // }
+
+    //-----------------
+
+    // 5. Виправте функцію, що втрачає "this"
+
+    // function askPassword(ok, fail) {
+    //     let password = prompt("Password?", '');
+    //     if (password == "rockstar") ok();
+    //     else fail();
+    // }
+    //
+    // let user = {
+    //     name: 'Вася',
+    //
+    //     loginOk() {
+    //         alert(`${this.name} logged in`);
+    //     },
+    //
+    //     loginFail() {
+    //         alert(`${this.name} failed to log in`);
+    //     },
+    //
+    // };
+    //
+    // askPassword(user.loginOk, user.loginFail);
+
+    //-----------------
+
+    // 6. Що потрібно передати у виклик функції askPassword у коді нижче, щоб вона могла викликати
+    // функцію user.login(true) як ok та функцію user.login(false) як fail?
+
+    // function askPassword(ok, fail) {
+    //     let password = prompt("Password?", '');
+    //     if (password == "rockstar") ok();
+    //     else fail();
+    // }
+    //
+    // let user = {
+    //     name: 'John',
+    //
+    //     login(result) {
+    //         alert( this.name + (result ? ' logged in' : ' failed to log in') );
+    //     }
+    // };
+    //
+    // askPassword(?, ?); // ?
+
+    //-----------------
+
+    // 7. Є функція sum, яка підсумовує всі елементи масиву:
+
+    // function sum(arr) {
+    //     return arr.reduce(function(a, b) {
+    //         return a + b;
+    //     });
+    // }
+
+    // console.log( sum([1, 2, 3]) ); // 6 (=1+2+3)
+
+    // Створіть аналогічну функцію sumArgs(), яка підсумовуватиме всі свої аргументи:
+    // Для вирішення застосуйте метод reduce до arguments, використовуючи call, apply або "позичення методу".
+
+    // function sumArgs() {
+    //     /* ваш код */
+    // }
+    //
+    // console.log( sumArgs(1, 2, 3) );
+
+    //-----------------
+
+</script>
+</body>
+</html>
