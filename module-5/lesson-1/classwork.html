@@ -6,48 +6,67 @@
 </head>
 <body>
 <script>
-    // 1. const call = {
+    // 1. 
+    // const call = {
     // caller: "mom",
     //     says: function() {
-    //     console.log(`Hey, ${this.caller} just called.`);
+    //         const {caller, says} = this;
+    //         console.log(caller)
+    //     console.log(`Hey, ${caller} just called.`);
     // }
     // };
-    //
+    
     // call.says();
 
 
     //-----------------
 
 
-    // 2. const call = {
+    // // 2. 
+    // const call = {
     // caller: "mom",
-    //     says: () => {
+    //     says:  function () {
+    //       console.log(this)  
     //     console.log(`Hey, ${this.caller} just called.`);
+
     // }
     // };
-    //
-    // call.says();
+    
+    // call.says(call);
 
     //-----------------
 
-    // 3. const call = {
+
+    // 3. 
+    // console.log(undefined.caller)
+    // const call = {
     // caller: "mom",
-    //     says: function() {
-    //     console.log(`Hey, ${this.caller} just called.`);
+    //     mkaeHello: writeHello
     // }
     // };
-    //
-    // let newCall = call.says;
-    //
+    
+    // let newCall = call.says.bind(call);
+    
     // newCall();
 
     //-----------------
 
+    
     // 4. Э функція, викличте її в правильному контексті
 
     // function showFullName() {
     //     alert( this.firstName + " " + this.lastName );
     // }
+   
+    //     const person = {
+    //      firstName:"Mango",
+    //     lastName:"Poly"
+
+    //         }
+    //     person.fullName = showFullName
+    //     // showFullName.call(person)
+    //     person.fullName()
+
 
     //-----------------
 
@@ -55,24 +74,27 @@
 
     // function askPassword(ok, fail) {
     //     let password = prompt("Password?", '');
-    //     if (password == "rockstar") ok();
+    //     console.log(ok, fail)
+    //     if (password == "1") ok();
     //     else fail();
     // }
-    //
+    
     // let user = {
     //     name: 'Вася',
-    //
+    
     //     loginOk() {
     //         alert(`${this.name} logged in`);
     //     },
-    //
+    
     //     loginFail() {
     //         alert(`${this.name} failed to log in`);
     //     },
-    //
+    
     // };
-    //
-    // askPassword(user.loginOk, user.loginFail);
+
+    // askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+    // askPassword(() => user.loginOk.call(user), () => user.loginFail.call(user));
+    // askPassword(function(){  user.loginOk.call(user)}, function(){ user.loginFail.call(user)});
 
     //-----------------
 
@@ -81,19 +103,25 @@
 
     // function askPassword(ok, fail) {
     //     let password = prompt("Password?", '');
-    //     if (password == "rockstar") ok();
-    //     else fail();
+    //     if (password == "rockstar") {
+    //         ok()
+    //     } else {
+    //         fail()
+    //     };
     // }
-    //
+    
     // let user = {
     //     name: 'John',
-    //
+    
     //     login(result) {
     //         alert( this.name + (result ? ' logged in' : ' failed to log in') );
     //     }
     // };
-    //
-    // askPassword(?, ?); // ?
+
+    // const success = user.login.bind(user, true);
+    // const fail = user.login.bind(user, false)
+    
+    // askPassword(success, fail); // ?
 
     //-----------------
 
@@ -111,9 +139,24 @@
     // Для вирішення застосуйте метод reduce до arguments, використовуючи call, apply або "позичення методу".
 
     // function sumArgs() {
-    //     /* ваш код */
+        /* ваш код */
+        // arguments.reduce = [].reduce
+        // console.log(arguments)
+
+        //  return arguments.reduce(function(a, b) {
+        //     return a + b;
+        // })
+
+        // return [].reduce.call(arguments, function(acum, elem) {
+        //     return acum + elem;
+        // }, 0)
+    
+
+        //  return [].reduce.apply(arguments, [function(acum, elem) {
+            // return acum + elem;
+        // }, 0])
     // }
-    //
+    
     // console.log( sumArgs(1, 2, 3) );
 
     //-----------------
