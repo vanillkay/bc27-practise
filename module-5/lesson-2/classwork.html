@@ -11,25 +11,131 @@
     //     - повна назва;
     //     - опис
     //     - ціна;
-    // (має також бути унікальний артикул для товару);
+    // (має також бути приватний унікальний артикул для товару);
     //
     // А також методи:
-    //     - розрахунок ціни (аргумент - кількість товарів, якщо більше 20 - тоді знижка на всю суму - 15 відсотків);
-    //     - вартість доставки (аргументи - адреса, ціна за доставку обраховується так –  1% от ціни,
+    //     - розрахунок ціни (приватний, аргумент - кількість товарів, якщо більше 20 - тоді знижка на всю суму - 15 відсотків);
+    //     - вартість доставки (метод - приватний, аргументи - адреса, ціна за доставку обраховується так –  1% от ціни,
     //       якщо ціна більше 2000 - доставка безкоштовно);
-    //     - друк чеку (цей метод викликає зсередини методи для розрахунку ціни та доставки - формує інфу під замовлення
-    //       і виводить дані в консоль)
+    //     - друк чеку (приватний, цей метод отримує інфу під замовленняі виводить дані в консоль)
+    //     - замовлення товару ( публічний, розраховую ціну товару,доставки та генерує об'єкт замовлення 
+    //       { адресса, товар, кількість, ціна за доставку, ціна за замовлення})
     //
 
     //---------------------
 
+    // class Product {
+    //     #articul;
+    //     constructor ({shortName, fullName, description, price}){
+    //         this.shortName = shortName;
+    //         this.fullName = fullName;
+    //         this.description = description;
+    //         this.price = price;
+    //         this.#articul = Math.random();
+    //     }
 
+
+    //     #calcPrice(amount){
+    //         if(amount > 20){
+    //              return this.price*amount*0.85; 
+    //         } 
+    //          return this.price*amount;
+    //     }
+        
+    //     #deliveryInfo(address, pricePerOrder) {
+    //         const baseDeliveryInfo = { addressName: address }
+    //         if(pricePerOrder < 2000) {
+    //             return { ...baseDeliveryInfo, deliveryPrice: pricePerOrder * 0.01};
+    //         }
+    //         return baseDeliveryInfo;
+
+    //     }
+
+    //     makeOrder (amount, address) {
+    //         const productPrice = this.#calcPrice(amount);
+    //         const info = this.#deliveryInfo(address, productPrice);
+            
+    //         const order = {
+    //             ...info,
+    //             product: { ...this },
+    //             productPrice,
+    //             totalPrice: info.deliveryPrice + productPrice,
+    //         }
+    //         this.#printCheck(order);
+    //         return order;
+    //     }
+
+    //     #printCheck(order) {
+    //         console.log("Your order -> ", order);
+    //     }
+
+        
+
+    // }
+    
+    // const mango = new Product ({shortName: 'man', fullName: 'mango', description: 'big', price: 100});
+
+    // mango.makeOrder(10, "Kyiv");
+
+
+
+    //-------------------------
+
+    
     // 2. Реалізувати клас Employee, в якому будуть наступні властивості - ім'я (name) , вік (age), зарплата (salary).
     // Зробіть так, щоб ці властивості заповнювалися при створенні об'єкта.
-    // Зробіть поле salary приватним та створыть геттери та сеттери для нього
+    // Зробіть поле salary приватним та створіть геттери та сеттери для нього
     // Зробіть клас Programmer, який буде успадкований від класу Employee, у якому буде властивість lang (список мов)
     // Для класса Programmer перезапишите геттер для свойства salary. Хай він повертає властивість salary, помножене на 3.
     // Створіть кілька екземплярів об'єкта Programmer, виведіть їх у консоль.
+
+    // class Employee {
+    //     #salary;
+    //     constructor ({name, age, salary}) {
+    //         this.name = name;
+    //         this.age = age;
+    //         this.#salary = salary;
+    //     }
+    //     get salary() {
+    //         console.log('get in super')
+    //         return this.#salary;
+    //     }
+    //     set salary(newSalary) {
+    //         this.#salary = newSalary;
+    //     }
+    // }
+    
+    // const Vlad = new Employee ({name: 'Vlad', age: 30, salary: 1000});
+    // console.log(Vlad);
+    // console.log(Vlad.salary);
+    // Vlad.salary = 20000;
+    // console.log(Vlad.salary);
+
+    // class Programmer extends Employee{
+    
+
+    //     constructor ({name, age, salary, lang}) {
+    //         super({name, age, salary})
+    //         this.lang = lang;
+    //     }
+
+
+    //     get salary() {
+    //         console.log('get in child')
+    //         return super.salary * 3
+    //     }
+        
+        
+    // }
+
+
+    // const Vlad = new Programmer ({name: 'Vlad', age: 30, salary: 1000});
+
+    // console.log(Vlad)
+    // console.log(Vlad.salary);
+    // const Roma = new Programmer ({name: 'Roma', age: 25, salary: 1236});
+    // console.log(Roma.salary);
+
 
     //-------------------------
 
@@ -56,6 +162,86 @@
     // 3) Ship (усі поля від Vehicle + type, name, engine, color, passengers: {name, age, ticket}[] ( приватне ) ) + методи)
     // -info (описує поведінку корабля),
     // -addPassenger ( якщо пасажира ще немає на борту – додати його у список passengers, якщо є вивести помилку )
+
+// class Vehicle {
+
+//     static maxSpeed = 10;
+
+//     #currentSpeed;
+
+//     constructor({currentSpeed, year, country, weight}){
+//         this.#currentSpeed = currentSpeed;
+//         this.year = year;
+//         this.country = country;
+//         this.weight = weight;
+//     }
+
+//     info(){
+//        console.log('Smth moving!'); 
+//     }
+
+//     get currentSpeed(){
+//         return this.#currentSpeed;
+//     }
+
+// }
+
+// class Car extends Vehicle {
+//     constructor({type, name, model, wheels, ...otherProp}) {
+//         super(otherProp)
+//         this.type = type;
+//         this.name = name;
+//         this.model = model;
+//         this.wheels = wheels;
+//     }
+
+//     info(){
+//         console.log('Car drive!');
+//     }
+
+//     travelTime(distance){
+//         return distance / super.currentSpeed;
+//     }
+
+// }
+
+// const ford = new Car({currentSpeed: 50, year: 2018, country: 'USA', weight: 2000, type: "sedan", name: 'Ford', model: "focus", wheels: 4 })
+// ford.info()
+// console.log(ford.travelTime(150));
+
+// class AirPlane extends Vehicle {
+
+//     constructor({ type, name, engine , ...otherProps}) {
+//         super(otherProps);
+//         this.type = type;
+//         this.name = name;
+//         this.engine = engine;
+//     }
+
+//     #oldEngines = [];
+
+//     info() {
+//         console.log('This plane can fly');
+//     }
+
+//     updateEngine(newEngine) {
+//         this.#oldEngines.push(this.engine);
+//         this.engine = newEngine;
+//     }
+
+//     showAllEngines() {
+//         console.log(this.engine + ', '  + this.#oldEngines.reverse().join(' , '));
+//     }
+
+// }
+
+// const somePlane = new AirPlane({type: 'Boeing', name: 'Airbus', engine: 'Torpedo 3000', currentSpeed: '800', year: '2016', country: 'Ukraine',
+// weight: '20000'})
+
+// somePlane.updateEngine('Turbo 1004000');
+// somePlane.updateEngine('SuperTurbo 100000');
+// somePlane.showAllEngines();
+// somePlane.info();
 
     //-------------------------
 </script>
