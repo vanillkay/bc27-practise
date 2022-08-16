@@ -18,7 +18,7 @@
     //     - вартість доставки (метод - приватний, аргументи - адреса, ціна за доставку обраховується так –  1% от ціни,
     //       якщо ціна більше 2000 - доставка безкоштовно);
     //     - друк чеку (приватний, цей метод отримує інфу під замовленняі виводить дані в консоль)
-    //     - замовлення товару ( публічний, розраховую ціну товару,доставки та генерує об'єкт замовлення 
+    //     - замовлення товару ( публічний, розраховую ціну товару,доставки та генерує об'єкт замовлення
     //       { адресса, товар, кількість, ціна за доставку, ціна за замовлення})
     //
 
@@ -37,11 +37,11 @@
 
     //     #calcPrice(amount){
     //         if(amount > 20){
-    //              return this.price*amount*0.85; 
-    //         } 
+    //              return this.price*amount*0.85;
+    //         }
     //          return this.price*amount;
     //     }
-        
+
     //     #deliveryInfo(address, pricePerOrder) {
     //         const baseDeliveryInfo = { addressName: address }
     //         if(pricePerOrder < 2000) {
@@ -54,7 +54,7 @@
     //     makeOrder (amount, address) {
     //         const productPrice = this.#calcPrice(amount);
     //         const info = this.#deliveryInfo(address, productPrice);
-            
+
     //         const order = {
     //             ...info,
     //             product: { ...this },
@@ -69,10 +69,10 @@
     //         console.log("Your order -> ", order);
     //     }
 
-        
+
 
     // }
-    
+
     // const mango = new Product ({shortName: 'man', fullName: 'mango', description: 'big', price: 100});
 
     // mango.makeOrder(10, "Kyiv");
@@ -81,7 +81,7 @@
 
     //-------------------------
 
-    
+
     // 2. Реалізувати клас Employee, в якому будуть наступні властивості - ім'я (name) , вік (age), зарплата (salary).
     // Зробіть так, щоб ці властивості заповнювалися при створенні об'єкта.
     // Зробіть поле salary приватним та створіть геттери та сеттери для нього
@@ -104,7 +104,7 @@
     //         this.#salary = newSalary;
     //     }
     // }
-    
+
     // const Vlad = new Employee ({name: 'Vlad', age: 30, salary: 1000});
     // console.log(Vlad);
     // console.log(Vlad.salary);
@@ -112,7 +112,7 @@
     // console.log(Vlad.salary);
 
     // class Programmer extends Employee{
-    
+
 
     //     constructor ({name, age, salary, lang}) {
     //         super({name, age, salary})
@@ -124,8 +124,8 @@
     //         console.log('get in child')
     //         return super.salary * 3
     //     }
-        
-        
+
+
     // }
 
 
@@ -177,7 +177,7 @@
 //     }
 
 //     info(){
-//        console.log('Smth moving!'); 
+//        console.log('Smth moving!');
 //     }
 
 //     get currentSpeed(){
