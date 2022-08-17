@@ -1,15 +1,24 @@
-// 1. Створити функцію, яка прийматиме на вхід масив.
-//
-//      Кожен із елементів масиву вивести на сторінку у вигляді пункту списку
-//      Додайте кожному елементу дата атрибут position який дорівнює індексу елемента в масиві
-//      Необхідно використовувати шаблонні рядки та функцію map масиву для формування контенту списку перед виведенням його на сторінку.
-//      Додати розмітку у div з айді root
-//      Приклади масивів, які можна виводити на екран:
-//      ['hello', 'world', 'Kiev', 'Kharkiv', 'Odessa', 'Lviv']
-//      ['1', '2', '3', 'sea', 'user', 23]
+const elem = document.querySelector("#text")
+// elem.style.color = "red"
+// elem.style.fontSize = "30px"
 
-// 2. Додати обробник подій пілся того, як відобразали список.
-//    Обробник має при кліку або додавати на єлемент списку класс active або прибирати
+const color = 'red';
 
-// 3. Зробити так, щоб активний елемент списку був зажди тільки один. Якщо клікнули на неактивний елемент списку і при
-//    цбому на сторінці вже є активний елемент – прибирати класс active у існуючого активного елемента
+elem.style.cssText = `
+    color: ${color};
+    font-size: 30px
+`;
+
+elem.textContent += " World"
+ 
+const elem1 = document.createElement('p')
+const img = document.createElement("img")
+img.setAttribute("src", 'https://media.istockphoto.com/photos/very-closeup-view-of-amazing-domestic-pet-in-mirror-round-fashion-is-picture-id1281804798?b=1&k=20&m=1281804798&s=170667a&w=0&h=HIWbeaP_cQSngCz7l9t3xwyE2eyzVgIy3K6xIqPhJQA=')
+elem1.append(img, img)
+
+elem.after(elem1) // 1 Visit to the DOM
+
+const texxt = 'inside'
+const spanEL = `<span> hello i am span ${texxt}</span>`
+
+elem.insertAdjacentHTML('beforebegin', spanEL) // 2 Visit to the DOM
