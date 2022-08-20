@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+td:hover{
+    cursor: pointer;
+}
+
+.cell{
+    width: 30px;
+    height: 30px;
+}
+
+.black {
+    background-color: black;
+}
+
+table.reverse .black{
+background-color: white;
+
+}
+
+.reverse, table.reverse th, table.reverse td { 
+    border: 1px solid white;
+}
+
+table.reverse td:not(.black){
+    background-color: black;
+}
+
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<script src="script.js"></script>
+</body>
+</html>
