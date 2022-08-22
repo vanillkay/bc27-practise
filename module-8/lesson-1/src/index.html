@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text transformer</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+  <div class="form__group field">
+    <input type="text" class="form__field" placeholder="Name" name="str" id='str' required />
+    <label for="str" class="form__label">String to transform</label>
+  </div>
+  <div class="controls">
+    <div class="result-str" id="camelCase">
+      <button>Transform to Camel Case</button>
+      <span>camelCase</span>
+    </div>
+    <div class="result-str" id="kebabCase">
+      <button >Transform to Kebab Case</button>
+      <span>kebab-case</span>
+    </div>
+    <div class="result-str" id="snakeCase">
+      <button>Transform to Snake Case</button>
+      <span>snake_case</span>
+    </div>
+    <div class="result-str" id="swapCase">
+      <button>Transform to Swap Case</button>
+      <span>sWAP cASE</span>
+    </div>
+  </div>
+  <script src="js/string-manipulation.js" type="module"></script>
+  </body>
+</html>
