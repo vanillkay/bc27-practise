@@ -22,9 +22,9 @@
 //--------------------
 
 // 3) Напишіть функцію printNumbers(from, to), яка виводить число кожну секунду, починаючи з from і закінчуючи to.
-// function printNumbers(from, to){    
+// function printNumbers(from, to){
 //     let counter = from;
-    
+
 //      const intervalId = setInterval(() => {
 //         console.log(counter);
 //         counter +=1
@@ -54,7 +54,7 @@
 
 //--------------------
 
-// 4) Напишіть функію яка буде зчитувати з інпута введену дату, 
+// 4) Напишіть функію яка буде зчитувати з інпута введену дату,
 // та виводити на сторінку різницю секунд хвилин годин днів віддосно сьогоднішної дати
 
 // const inputedDate = document.querySelector("input");
@@ -67,7 +67,7 @@
 //     // console.log(event.target.value);
 //     const userDate = new Date(event.target.value);
 //     const delta = userDate.getTime() - Date.now();
-    
+
 //     const result = convertMs(delta);
 //     // console.log(result);
 //     root.innerHTML = createMarkup(result);
@@ -79,7 +79,7 @@
 //     const minute = second * 60;
 //     const hour = minute * 60;
 //     const day = hour * 24;
-  
+
 //     // Remaining days
 //     const days = Math.floor(ms / day);
 //     // Remaining hours
@@ -88,7 +88,7 @@
 //     const minutes = Math.floor(((ms % day) % hour) / minute);
 //     // Remaining seconds
 //     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-  
+
 //     return { days, hours, minutes, seconds };
 //   }
 
@@ -110,9 +110,9 @@
 // Ще за 5 секунд - четверта.
 // Після того, як з'являться всі картинки - цей цикл має розпочатися наново.
 // При запуску програми десь на екрані з'явиться кнопка з написом Stop.
-// Після натискання на кнопку Stop цикл завершується, на екрані залишається показаною та картинка, 
+// Після натискання на кнопку Stop цикл завершується, на екрані залишається показаною та картинка,
 //      яка була там при натисканні кнопки.
-// Поруч із кнопкою Stop має бути кнопка Restart показ, 
+// Поруч із кнопкою Stop має бути кнопка Restart показ,
 //      при натисканні якої цикл продовжується з тієї картинки, яка в даний момент показана на екрані.
 // Розмітку можна змінювати, додавати потрібні класи, ID, атрибути, теги.
 
