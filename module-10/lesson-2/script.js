@@ -5,20 +5,11 @@ document.body.append(ul);
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com/todos';
 
+const TOTAL_TODO = 200;
+const TODOS_PER_PAGE = 50;
+let pageNumber = 1;
+const TOTAL_PAGES = TOTAL_TODO / TODOS_PER_PAGE;
 
-const searchParams = new URLSearchParams({
-    _limit: 10,
-})
-
-fetch(`${BASE_URL}?${searchParams}`).then((response) => {
-    return response.json();
-}).then(data => {
-
-    console.log(data)
-    ul.innerHTML = unpacker(data);
-
-    ul.addEventListener('click', onChecked)
-})
 
 function unpacker (data) {
     return data.map(({ id, title, completed }) => {
@@ -59,4 +50,49 @@ function onToDoUpdate(completed, toDoId, checkbox) {
     ).then(data => console.log(data)).finally(() => {
         checkbox.disabled = false
     })
+}
+
+
+const buttonRef = document.createElement("button")
+buttonRef.textContent = "download todos"
+buttonRef.addEventListener("click",onButtonClick)
+
+document.body.append(buttonRef)
+
+function onButtonClick() {
+    if (pageNumber === 1) {
+        buttonRef.textContent = "load more"
+    }
+   
+       // if (TOTAL_PAGES <= pageNumber) { 
+        //     buttonRef.remove()
+        // }
+    onLoadTodo()
+
+
+}
+
+function onLoadTodo() {
+    const searchParams = new URLSearchParams({
+        _limit: TODOS_PER_PAGE,
+        _page:  pageNumber 
+        
+})
+    
+    fetch(`${BASE_URL}?${searchParams}`).then((response) => {
+    return response.json();
+    }).then(data => {
+    
+    ul.insertAdjacentHTML("beforeend",unpacker(data))
+
+    ul.addEventListener('click', onChecked)
+    }).catch(error => console.log).finally(() => {
+        // if (TOTAL_PAGES <= pageNumber) { 
+        //     buttonRef.remove()
+        // }
+        pageNumber+=1
+       
+    
+})
+    
 }
