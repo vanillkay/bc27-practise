@@ -7,13 +7,14 @@ const BASE_URL = 'https://jsonplaceholder.typicode.com/todos';
 
 
 const searchParams = new URLSearchParams({
-    _limit: 20
+    _limit: 10,
 })
 
 fetch(`${BASE_URL}?${searchParams}`).then((response) => {
     return response.json();
 }).then(data => {
 
+    console.log(data)
     ul.innerHTML = unpacker(data);
 
     ul.addEventListener('click', onChecked)
@@ -22,7 +23,7 @@ fetch(`${BASE_URL}?${searchParams}`).then((response) => {
 function unpacker (data) {
     return data.map(({ id, title, completed }) => {
         const isChecked = completed ? 'checked' : '';
-       return `<li data-id=${id}>
+        return `<li data-id=${id}>
         <p>Title: ${title}</p>
         <input type="checkbox" ${isChecked}>
         </li>`
@@ -30,13 +31,13 @@ function unpacker (data) {
 }
 
 function onChecked(e) {
- if (e.target.nodeName !== "INPUT") {
-    return;
- }
+    if (e.target.nodeName !== "INPUT") {
+        return;
+    }
     const toDoId = e.target.closest('li').dataset.id
-    const isComplited = e.target.checked
+    const isCompleted = e.target.checked
     const checkbox = e.target
-    onToDoUpdate(isComplited, toDoId, checkbox)
+    onToDoUpdate(isCompleted, toDoId, checkbox)
     e.target.disabled = true;
 }
 
@@ -50,11 +51,11 @@ function onToDoUpdate(completed, toDoId, checkbox) {
             'Content-type': 'application/json; charset=UTF-8',
         },
     }).then(response => {
-        if (!response.ok) {
-            throw new Error(response.status);
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+            return response.json();
         }
-        return response.json();
-    }
     ).then(data => console.log(data)).finally(() => {
         checkbox.disabled = false
     })
