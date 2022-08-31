@@ -17,6 +17,7 @@ function unpacker (data) {
         return `<li data-id=${id}>
         <p>Title: ${title}</p>
         <input type="checkbox" ${isChecked}>
+        <button type="button">Delete me!</button>
         </li>`
     }).join('');
 }
